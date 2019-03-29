@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://jingbiao95.github.io">
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="文本分类 —— TextCNN">
+  <meta name="description" content="Ubuntu下如何解压缩zip,tar,tar.gz,tar.bz2文件   ZIP 我们可以使用下列的命令压缩一个目录：1zip -r archive_name.zip directory_to_compress 下面是如果解压一个zip文档：1unzip archive_name.zip ps:发现中文乱码12sudo apt install unar #安装unar archive_name">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://jingbiao95.github.io/2019/03/19/文本分类--TextCNN/index.html">
+<meta property="og:url" content="http://jingbiao95.github.io/2019/03/19/unbunut 压缩解压命令/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="文本分类 —— TextCNN">
+<meta property="og:description" content="Ubuntu下如何解压缩zip,tar,tar.gz,tar.bz2文件   ZIP 我们可以使用下列的命令压缩一个目录：1zip -r archive_name.zip directory_to_compress 下面是如果解压一个zip文档：1unzip archive_name.zip ps:发现中文乱码12sudo apt install unar #安装unar archive_name">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-19T07:48:30.875Z">
+<meta property="og:updated_time" content="2019-03-19T07:47:34.496Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="文本分类 —— TextCNN">
+<meta name="twitter:description" content="Ubuntu下如何解压缩zip,tar,tar.gz,tar.bz2文件   ZIP 我们可以使用下列的命令压缩一个目录：1zip -r archive_name.zip directory_to_compress 下面是如果解压一个zip文档：1unzip archive_name.zip ps:发现中文乱码12sudo apt install unar #安装unar archive_name">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -158,12 +158,21 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-文本分类--TextCNN" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-unbunut 压缩解压命令" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="文本分类-——-TextCNN"><a href="#文本分类-——-TextCNN" class="headerlink" title="文本分类 —— TextCNN"></a>文本分类 —— TextCNN</h1>
+        <p>Ubuntu下如何解压缩zip,tar,tar.gz,tar.bz2文件  </p>
+<h1 id="ZIP"><a href="#ZIP" class="headerlink" title="ZIP"></a>ZIP</h1><p> 我们可以使用下列的命令压缩一个目录：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip -r archive_name.zip directory_to_compress</span><br></pre></td></tr></table></figure></p>
+<p>下面是如果解压一个zip文档：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip archive_name.zip</span><br></pre></td></tr></table></figure></p>
+<p>ps:发现中文乱码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install unar #安装</span><br><span class="line">unar archive_name.zip</span><br></pre></td></tr></table></figure></p>
+<h1 id="TAR"><a href="#TAR" class="headerlink" title="TAR"></a>TAR</h1><p>Tar是在Linux中使用得非常广泛的文档打包格式。它的好处就是它只消耗非常少的CPU以及时间去打包文件，他仅仅只是一个打包工具，并不负责压缩。下面是如何打包一个目录：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -cvf archive_name.tar directory_to_compress</span><br></pre></td></tr></table></figure></p>
+<p>如何解包：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf archive_name.tar.gz</span><br></pre></td></tr></table></figure></p>
+<p>上面这个解包命令将会将文档解开在当前目录下面。当然，你也可以用这个命令来捏住解包的路径：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf archive_name.tar -C /tmp/extract_here/</span><br></pre></td></tr></table></figure></p>
+<h1 id="TAR-GZ"><a href="#TAR-GZ" class="headerlink" title="TAR.GZ"></a>TAR.GZ</h1><p>这种格式是我使用得最多的压缩格式。它在压缩时不会占用太多CPU的，而且可以得到一个非常理想的压缩率。使用下面这种格式去压缩一个目录：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zcvf archive_name.tar.gz directory_to_compress</span><br></pre></td></tr></table></figure></p>
+<p>解压缩：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf archive_name.tar.gz</span><br></pre></td></tr></table></figure></p>
+
       
 
       
@@ -242,7 +251,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://jingbiao95.github.io/2019/03/19/文本分类--TextCNN/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://jingbiao95.github.io/2019/03/19/unbunut 压缩解压命令/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -256,7 +265,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/03/29/线性回归算法梳理/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/03/19/文本分类--TextCNN/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -266,7 +275,7 @@
     </a>
   
   
-    <a href="/2019/03/19/unbunut 压缩解压命令/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/03/19/Ubuntu 16安装shadowsocks-qt5并使用PAC全局代理  /" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>

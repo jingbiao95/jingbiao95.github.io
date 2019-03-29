@@ -156,15 +156,17 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-搭建一个简易的博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-线性回归算法梳理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>如何搭建一个简易博客——利用github<br>环境平台<br>unbuntu 16.04</p>
-<h1 id="1-配置环境"><a href="#1-配置环境" class="headerlink" title="1.配置环境"></a>1.配置环境</h1><h2 id="1-1安装node"><a href="#1-1安装node" class="headerlink" title="1.1安装node"></a>1.1安装node</h2>
+        <p>线性回归算法梳理</p>
+<h1 id="1-机器学习的一些概念"><a href="#1-机器学习的一些概念" class="headerlink" title="1. 机器学习的一些概念"></a>1. 机器学习的一些概念</h1><h2 id="1-1-有监督-supervised-learning-和无监督"><a href="#1-1-有监督-supervised-learning-和无监督" class="headerlink" title="1.1 有监督(supervised learning)和无监督"></a>1.1 有监督(supervised learning)和无监督</h2><h4 id="1-1-1-有监督："><a href="#1-1-1-有监督：" class="headerlink" title="1.1.1 有监督："></a>1.1.1 有监督：</h4><pre><code>训练数据集必须是有标记，然后通过给定的训练数据和特定的算法去构造一个模型。
+</code></pre><h4 id="1-1-2-无监督："><a href="#1-1-2-无监督：" class="headerlink" title="1.1.2 无监督："></a>1.1.2 无监督：</h4><pre><code>训练数据集没有标记，去寻找训练数据中隐藏的模式或者是对数据进行分组。
+</code></pre>
         
-          <a class="article-more-a" href="/2019/03/19/搭建一个简易的博客/#more">more >></a>
+          <a class="article-more-a" href="/2019/03/29/线性回归算法梳理/#more">more >></a>
         
       
 
@@ -177,7 +179,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/19/搭建一个简易的博客/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/03/29/线性回归算法梳理/">展开全文 >></a>
         </p>
       
 
@@ -225,6 +227,224 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/03/19/文本分类--TextCNN/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-unbunut 压缩解压命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Ubuntu下如何解压缩zip,tar,tar.gz,tar.bz2文件  </p>
+<h1 id="ZIP"><a href="#ZIP" class="headerlink" title="ZIP"></a>ZIP</h1><p> 我们可以使用下列的命令压缩一个目录：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip -r archive_name.zip directory_to_compress</span><br></pre></td></tr></table></figure></p>
+<p>下面是如果解压一个zip文档：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip archive_name.zip</span><br></pre></td></tr></table></figure></p>
+<p>ps:发现中文乱码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install unar #安装</span><br><span class="line">unar archive_name.zip</span><br></pre></td></tr></table></figure></p>
+<h1 id="TAR"><a href="#TAR" class="headerlink" title="TAR"></a>TAR</h1><p>Tar是在Linux中使用得非常广泛的文档打包格式。它的好处就是它只消耗非常少的CPU以及时间去打包文件，他仅仅只是一个打包工具，并不负责压缩。下面是如何打包一个目录：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -cvf archive_name.tar directory_to_compress</span><br></pre></td></tr></table></figure></p>
+<p>如何解包：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf archive_name.tar.gz</span><br></pre></td></tr></table></figure></p>
+<p>上面这个解包命令将会将文档解开在当前目录下面。当然，你也可以用这个命令来捏住解包的路径：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf archive_name.tar -C /tmp/extract_here/</span><br></pre></td></tr></table></figure></p>
+<h1 id="TAR-GZ"><a href="#TAR-GZ" class="headerlink" title="TAR.GZ"></a>TAR.GZ</h1><p>这种格式是我使用得最多的压缩格式。它在压缩时不会占用太多CPU的，而且可以得到一个非常理想的压缩率。使用下面这种格式去压缩一个目录：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zcvf archive_name.tar.gz directory_to_compress</span><br></pre></td></tr></table></figure></p>
+<p>解压缩：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf archive_name.tar.gz</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/19/unbunut 压缩解压命令/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Ubuntu 16安装shadowsocks-qt5并使用PAC全局代理  " class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Ubuntu 16安装shadowsocks-qt5并使用PAC全局代理<br>参考<link><br><a href="https://www.litcc.com/2016/12/29/Ubuntu16-shadowsocks-pac/index.html" target="_blank" rel="noopener">https://www.litcc.com/2016/12/29/Ubuntu16-shadowsocks-pac/index.html</a><br><a href="https://skywt.cn/posts/ubuntu-16-04-shadowsocks-qt5/" target="_blank" rel="noopener">https://skywt.cn/posts/ubuntu-16-04-shadowsocks-qt5/</a></p>
+<h1 id="1-安装-shadowsocks-qt5"><a href="#1-安装-shadowsocks-qt5" class="headerlink" title="1.安装 shadowsocks-qt5"></a>1.安装 shadowsocks-qt5</h1><h2 id="1-1设置-PPA-源并安装-shadowsocks-qt5"><a href="#1-1设置-PPA-源并安装-shadowsocks-qt5" class="headerlink" title="1.1设置 PPA 源并安装 shadowsocks-qt5"></a>1.1设置 PPA 源并安装 shadowsocks-qt5</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:hzwhuang/ss-qt5</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install shadowsocks-qt5</span><br></pre></td></tr></table></figure>
+<h2 id="1-2配置-shadowsocks-qt5"><a href="#1-2配置-shadowsocks-qt5" class="headerlink" title="1.2配置 shadowsocks-qt5"></a>1.2配置 shadowsocks-qt5</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">配置项</th>
+<th style="text-align:center">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">配置名称</td>
+<td style="text-align:center">「连接」的名称</td>
+</tr>
+<tr>
+<td style="text-align:center">服务器地址</td>
+<td style="text-align:center">Shadowsocks服务器的IP地址或者域名</td>
+</tr>
+<tr>
+<td style="text-align:center">服务器端口</td>
+<td style="text-align:center">Shadowsocks服务器的端口</td>
+</tr>
+<tr>
+<td style="text-align:center">密钥</td>
+<td style="text-align:center">Shadowsocks的加密密钥</td>
+</tr>
+<tr>
+<td style="text-align:center">本地地址</td>
+<td style="text-align:center">本地代理服务器监听IP地址</td>
+</tr>
+<tr>
+<td style="text-align:center">本地端口</td>
+<td style="text-align:center">本地代理服务器监听端口</td>
+</tr>
+<tr>
+<td style="text-align:center">本地服务器类型</td>
+<td style="text-align:center">本地代理服务器的类型</td>
+</tr>
+<tr>
+<td style="text-align:center">加密方式</td>
+<td style="text-align:center">Shadowsocks的加密方式</td>
+</tr>
+<tr>
+<td style="text-align:center">超时</td>
+<td style="text-align:center">TCP连接的最长空闲时间（秒）</td>
+</tr>
+<tr>
+<td style="text-align:center">重置数据流量</td>
+<td style="text-align:center">流量统计中本期的最后一天，超过该天后，本期流量将被重置清零</td>
+</tr>
+<tr>
+<td style="text-align:center">自动化</td>
+<td style="text-align:center">程序启动时自动连接（Shadowsocks-Qt5启动时自动激活该「连接」）</td>
+</tr>
+</tbody>
+</table>
+<h1 id="2-配置全局代理"><a href="#2-配置全局代理" class="headerlink" title="2.配置全局代理"></a>2.配置全局代理</h1><h2 id="2-1ubuntu-安装-pip"><a href="#2-1ubuntu-安装-pip" class="headerlink" title="2.1ubuntu 安装 pip"></a>2.1ubuntu 安装 pip</h2><p>安装pip的方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python-pip</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-2、安装GenPAC"><a href="#2-2、安装GenPAC" class="headerlink" title="2.2、安装GenPAC"></a>2.2、安装GenPAC</h2><p>使用 PAC 文件，使得代理服务只代理境外的地址，不代理大陆的地址。因为如果用代理访问大陆的有些网站会非常慢，内网也会无法访问。<br>GenPAC 是基于gfwlist的代理自动配置（Proxy Auto-config）文件生成工具，支持自定义规则。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install genpac</span><br></pre></td></tr></table></figure></p>
+<p>升级、开发版升级和卸载的命令分别是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install --upgrade genpac</span><br><span class="line">pip install --upgrade https://github.com/JinnLynn/genpac/archive/master.zip</span><br><span class="line">pip uninstall genpac</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-3、下载gfwlist"><a href="#2-3、下载gfwlist" class="headerlink" title="2.3、下载gfwlist"></a>2.3、下载gfwlist</h2><p>接下来从 GFWList 生成代理信息为 SOCKS5 127.0.0.1:1080 的 PAC 文件 autoproxy.pac：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">genpac --format=pac --pac-proxy=&quot;SOCKS5 127.0.0.1:1080&quot; -o autoproxy.pac</span><br></pre></td></tr></table></figure></p>
+<p>下面的命令生成的 PAC 文件设置是，如果在线 GFWList 获取失败使用本地 gfwlist 文件，否则更新本地 gfwlist 文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">genpac --format=pac --pac-proxy=&quot;SOCKS5 127.0.0.1:1080&quot; --gfwlist-local=~/gfwlist.txt --gfwlist-update-local -o autoproxy.pac</span><br></pre></td></tr></table></figure></p>
+<p>这样 PAC 文件就生成完成  </p>
+<h1 id="3-打开电脑网络设置"><a href="#3-打开电脑网络设置" class="headerlink" title="3.打开电脑网络设置"></a>3.打开电脑网络设置</h1><p>打开设置-&gt;网络代理-&gt;为自动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file:///home/xxx/autoproxy.pac  # xxx为用户名</span><br></pre></td></tr></table></figure></p>
+<h1 id="4-使用浏览器打开网页"><a href="#4-使用浏览器打开网页" class="headerlink" title="4.使用浏览器打开网页"></a>4.使用浏览器打开网页</h1><h1 id="electron-ssr"><a href="#electron-ssr" class="headerlink" title="electron-ssr"></a>electron-ssr</h1><p>其实 github 上有一个比较高级的跨平台 ss(r) 客户端 electron-ssr，自带直接代理和 PAC，可以尝试。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/19/Ubuntu 16安装shadowsocks-qt5并使用PAC全局代理  /">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-搭建一个简易的博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>如何搭建一个简易博客——利用github<br>环境平台<br>unbuntu 16.04</p>
+<h1 id="1-配置环境"><a href="#1-配置环境" class="headerlink" title="1.配置环境"></a>1.配置环境</h1><h2 id="1-1安装node"><a href="#1-1安装node" class="headerlink" title="1.1安装node"></a>1.1安装node</h2>
+        
+          <a class="article-more-a" href="/2019/03/19/搭建一个简易的博客/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/19/搭建一个简易的博客/">展开全文 >></a>
         </p>
       
 

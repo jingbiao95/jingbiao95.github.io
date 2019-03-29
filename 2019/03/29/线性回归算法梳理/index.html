@@ -8,17 +8,21 @@
   <link rel="dns-prefetch" href="http://jingbiao95.github.io">
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="文本分类 —— TextCNN">
+  <meta name="description" content="线性回归算法梳理 1. 机器学习的一些概念1.1 有监督(supervised learning)和无监督1.1.1 有监督：训练数据集必须是有标记，然后通过给定的训练数据和特定的算法去构造一个模型。 1.1.2 无监督：训练数据集没有标记，去寻找训练数据中隐藏的模式或者是对数据进行分组。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://jingbiao95.github.io/2019/03/19/文本分类--TextCNN/index.html">
+<meta property="og:url" content="http://jingbiao95.github.io/2019/03/29/线性回归算法梳理/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="文本分类 —— TextCNN">
+<meta property="og:description" content="线性回归算法梳理 1. 机器学习的一些概念1.1 有监督(supervised learning)和无监督1.1.1 有监督：训练数据集必须是有标记，然后通过给定的训练数据和特定的算法去构造一个模型。 1.1.2 无监督：训练数据集没有标记，去寻找训练数据中隐藏的模式或者是对数据进行分组。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-19T07:48:30.875Z">
+<meta property="og:image" content="http://jingbiao95.github.io/2019/03/29/线性回归算法梳理/file/image/过拟合_欠拟合.png">
+<meta property="og:image" content="http://jingbiao95.github.io/2019/03/29/线性回归算法梳理/file/image/bais_variance.jpg">
+<meta property="og:image" content="http://jingbiao95.github.io/2019/03/29/线性回归算法梳理/file/image/L1_L2.jpg">
+<meta property="og:updated_time" content="2019-03-29T13:06:27.829Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="文本分类 —— TextCNN">
+<meta name="twitter:description" content="线性回归算法梳理 1. 机器学习的一些概念1.1 有监督(supervised learning)和无监督1.1.1 有监督：训练数据集必须是有标记，然后通过给定的训练数据和特定的算法去构造一个模型。 1.1.2 无监督：训练数据集没有标记，去寻找训练数据中隐藏的模式或者是对数据进行分组。">
+<meta name="twitter:image" content="http://jingbiao95.github.io/2019/03/29/线性回归算法梳理/file/image/过拟合_欠拟合.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -158,12 +162,95 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-文本分类--TextCNN" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-线性回归算法梳理" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="文本分类-——-TextCNN"><a href="#文本分类-——-TextCNN" class="headerlink" title="文本分类 —— TextCNN"></a>文本分类 —— TextCNN</h1>
+        <p>线性回归算法梳理</p>
+<h1 id="1-机器学习的一些概念"><a href="#1-机器学习的一些概念" class="headerlink" title="1. 机器学习的一些概念"></a>1. 机器学习的一些概念</h1><h2 id="1-1-有监督-supervised-learning-和无监督"><a href="#1-1-有监督-supervised-learning-和无监督" class="headerlink" title="1.1 有监督(supervised learning)和无监督"></a>1.1 有监督(supervised learning)和无监督</h2><h4 id="1-1-1-有监督："><a href="#1-1-1-有监督：" class="headerlink" title="1.1.1 有监督："></a>1.1.1 有监督：</h4><pre><code>训练数据集必须是有标记，然后通过给定的训练数据和特定的算法去构造一个模型。
+</code></pre><h4 id="1-1-2-无监督："><a href="#1-1-2-无监督：" class="headerlink" title="1.1.2 无监督："></a>1.1.2 无监督：</h4><pre><code>训练数据集没有标记，去寻找训练数据中隐藏的模式或者是对数据进行分组。
+</code></pre><a id="more"></a>
+<h3 id="1-1-3比喻"><a href="#1-1-3比喻" class="headerlink" title="1.1.3比喻"></a>1.1.3比喻</h3><p>例如学英语。有监督学习是先读几篇中英文对照的文章，从而学会阅读纯英语文章。无监督学习是直接阅读大量纯英文文章，当数量达到一定程度，虽然不能完全理解文章，但也会发现一些词组的固定搭配，句式等等。</p>
+<h2 id="1-2-泛化能力-generalization-ability-、过拟合、欠拟合-方差和偏差以及各自解决办法-、："><a href="#1-2-泛化能力-generalization-ability-、过拟合、欠拟合-方差和偏差以及各自解决办法-、：" class="headerlink" title="1.2 泛化能力(generalization ability)、过拟合、欠拟合(方差和偏差以及各自解决办法)、："></a>1.2 泛化能力(generalization ability)、过拟合、欠拟合(方差和偏差以及各自解决办法)、：</h2><h3 id="1-2-1-概念"><a href="#1-2-1-概念" class="headerlink" title="1.2.1 概念"></a>1.2.1 概念</h3><p><strong>泛化能力</strong>是指机器学习模型对从未见过的新样本的识别能力。<br>例如：<br>通过学习，小学生就可以熟练的掌握加减法，那么他们是怎么做到的呢？第一步学生们先感性的知道了在有一个苹果的基础上再拿来一个苹果的话就是一种加法，第二步知道个数可以用阿拉伯数字抽象的表示，到了0到9这十个数字和他们的抽象含义，第三步学习十以内的加减法，第四步推广到了多位数的加减法。 </p>
+<p><img src="file\image\过拟合_欠拟合.png" alt><br><strong>过拟合（over-fitting）</strong><br>就是模型的对训练数据集的拟合程度非常好，但是在测试集上的预测效果非常差</p>
+<p><strong>欠拟合（under-fitting）</strong><br>得到的模型在训练集上的效果不好，在测试集上的效果也差。</p>
+<h4 id="Bais-和-Variance"><a href="#Bais-和-Variance" class="headerlink" title="Bais 和 Variance"></a>Bais 和 Variance</h4><p><img src="file\image\bais_variance.jpg" alt></p>
+<p><strong><em>准</em></strong>：bias描述的是根据样本拟合出的模型的输出预测结果的期望与样本真实结果的差距，简单讲，就是在样本上拟合的好不好。要想在bias上表现好，low bias，就得复杂化模型，增加模型的参数，但这样容易过拟合 (overfitting)，过拟合对应上图是high variance，点很分散。low bias对应就是点都打在靶心附近，所以瞄的是准的，但手不一定稳。<br><strong>Bias</strong>是 “用<strong>所有可能的</strong>训练数据集训练出的<strong>所有模型</strong>的输出的<strong>平均值</strong>” 与 “真实模型”的输出值之间的差异；  </p>
+<p><strong><em>确</em></strong>：varience描述的是样本上训练出来的模型在测试集上的表现，要想在variance上表现好，low varience，就要简化模型，减少模型的参数，但这样容易欠拟合(unfitting)，欠拟合对应上图是high bias，点偏离中心。low variance对应就是点都打的很集中，但不一定是靶心附近，手很稳，但是瞄的不准。<br><strong>Variance</strong>则是“<strong>不同的训练数据集</strong>训练出的模型”的输出值<strong>之间</strong>的差异。</p>
+<h3 id="1-2-2-常用解决办法"><a href="#1-2-2-常用解决办法" class="headerlink" title="1.2.2 常用解决办法"></a>1.2.2 常用解决办法</h3><p>(1)解决欠拟合的方法：  </p>
+<pre><code>1、增加新特征，可以考虑加入进特征组合、高次特征，来增大假设空间;  
+2、尝试非线性模型，比如核SVM 、决策树、DNN等模型;  
+3、如果有正则项可以较小正则项参数 $\lambda$;  
+4、Boosting ,Boosting 往往会有较小的 Bias，比如 Gradient Boosting 等.  
+</code></pre><p>(2)解决过拟合的方法：</p>
+<pre><code>1、交叉检验，通过交叉检验得到较优的模型参数;  
+2、特征选择，减少特征数或使用较少的特征组合，对于按区间离散化的特征，增大划分的区间;  
+3、正则化，常用的有 L1、L2 正则。而且 L1正则还可以自动进行特征选择;  
+4、如果有正则项则可以考虑增大正则项参数 $\lambda$;  
+5、增加训练数据可以有限的避免过拟合;  
+6、Bagging ,将多个弱学习器Bagging 一下效果会好很多，比如随机森林等.
+</code></pre><h2 id="1-3-正则化"><a href="#1-3-正则化" class="headerlink" title="1.3 正则化"></a>1.3 正则化</h2><p>正则化方法是指在进行目标函数或代价函数优化时，在目标函数或代价函数后面加上一个正则项，一般有L1正则与L2正则等<br>正则化一般具有如下形式：<br>$ min \frac{1}{N} \sum_{i=1}^{N} L(y_i,f(x_i)) + \lambda J(f)$<br>其中$\lambda J(f) 是正则化项， \lambda \ge 0，\lambda为正则项系数$<br>（1） L1正则项会产生<strong>稀疏解</strong>。<br>（2） L2正则项会产生<strong>比较小的解</strong>。<br><strong>核心：L2对大数，对outlier更敏感！</strong></p>
+<h4 id="1-3-1-L0范数与L1范数"><a href="#1-3-1-L0范数与L1范数" class="headerlink" title="1.3.1 L0范数与L1范数"></a>1.3.1 L0范数与L1范数</h4><p>参考：<a href="https://blog.csdn.net/zouxy09/article/details/24971995" target="_blank" rel="noopener">https://blog.csdn.net/zouxy09/article/details/24971995</a><br> L0范数是指向量中非0的元素的个数。如果我们用L0范数来规则化一个参数矩阵W的话，就是希望W的大部分元素都是0。L1范数是指向量中各个元素绝对值之和。L1正则是基于L1范数。<br><strong>稀疏都是通过L1范数来实现</strong> 问什么？  </p>
+<ul>
+<li>L1是L0范数的最优凸近似   </li>
+<li>任何的规则化算子，如果他在Wi=0的地方不可微，并且可以分解为一个“求和”的形式，那么这个规则化算子就可以实现稀疏  </li>
+<li>总结：L1范数和L0范数可以实现稀疏，L1因具有比L0更好的优化求解特性而被广泛应用</li>
+</ul>
+<p><strong><em>参数稀疏的好处</em></strong><br>1）特征选择(Feature Selection)：<br>    xi的大部分元素（也就是特征）都是和最终的输出yi没有关系或者不提供任何信息的，在最小化目标函数的时候考虑xi这些额外的特征，虽然可以获得更小的训练误差，但在预测新的样本时，这些没用的信息反而会被考虑，从而干扰了对正确yi的预测。稀疏规则化算子的引入就是为了完成特征自动选择的光荣使命，它会学习地去掉这些没有信息的特征，也就是把这些特征对应的权重置为0。</p>
+<p>2）可解释性(Interpretability)：<br>例如患某种病的概率是y，然后我们收集到的数据x是1000维的，也就是我们需要寻找这1000种因素到底是怎么影响患上这种病的概率的。假设我们这个是个回归模型：y=w1<em>x1+w2</em>x2+…+w1000<em>x1000+b（当然了，为了让y限定在[0,1]的范围，一般还得加个Logistic函数）。通过学习，如果最后学习到的w</em>就只有很少的非零元素，例如只有5个非零的wi，那么我们就有理由相信，这些对应的特征在患病分析上面提供的信息是巨大的，决策性的。也就是说，患不患这种病只和这5个因素有关，那医生就好分析多了。</p>
+<h4 id="1-3-2-L2正则"><a href="#1-3-2-L2正则" class="headerlink" title="1.3.2 L2正则"></a>1.3.2 L2正则</h4><p>“岭回归”（Ridge Regression），有人也叫它“权值衰减weight decay”<br>改善机器学习里面一个非常重要的问题：过拟合<br><strong><em>L2范数是指向量各元素的平方和然后求平方根。</em></strong> 我们让L2范数的规则项$||W||_2$最小，可以使得W的每个元素都很小，都接近于0，但与L1范数不同，它不会让它等于0，而是<strong><em>接近于0</em></strong>，这里是有很大的区别的哦。而越小的参数说明模型越简单，越简单的模型则越不容易产生过拟合现象。<br><img src="file\image\L1_L2.jpg" alt></p>
+<h2 id="1-4-交叉验证（cross-vailidation）"><a href="#1-4-交叉验证（cross-vailidation）" class="headerlink" title="1.4 交叉验证（cross vailidation）"></a>1.4 交叉验证（cross vailidation）</h2><p><strong><em>作用：</em></strong></p>
+<pre><code>在数据集很小的时候防止over-fitting
+找到合适的模型参数
+</code></pre><p><strong><em>适用情况</em></strong>：</p>
+<pre><code>数据集较小时
+ps：一般做深度学习跑标准数据集的时候用不到
+</code></pre><h4 id="1-简单交叉验证"><a href="#1-简单交叉验证" class="headerlink" title="1 简单交叉验证"></a>1 简单交叉验证</h4><p>在保留交叉验证（hand-out cross validation）中，随机将训练样本集分成训练集（training set）和交叉验证集（cross validation set）,比如分别占70%，30%。然后使用模型在训练集上学习得到假设。最后使用交叉验证集对假设进行验证，看预测的是否准确，选择具有误差小的模型。</p>
+<h4 id="2-S折交叉验证"><a href="#2-S折交叉验证" class="headerlink" title="2 S折交叉验证"></a>2 S折交叉验证</h4><p>S折交叉验证（S-fold cross validation），就是把样本集S分成k份，分别使用其中的(k-1)份作为训练集，剩下的1份作为交叉验证集，最后取最后的平均误差，来评估这个模型。</p>
+<h4 id="3-留一交叉验证"><a href="#3-留一交叉验证" class="headerlink" title="3 留一交叉验证"></a>3 留一交叉验证</h4><p>留一法（leave one out， LOO）就是m-fold cross validation，m是样本集的大小，就是只留下一个样本来验证模型的准确性</p>
+<h1 id="2-线性回归的原理"><a href="#2-线性回归的原理" class="headerlink" title="2. 线性回归的原理"></a>2. 线性回归的原理</h1><p>ps：<strong>回归</strong> 时专指模型的输出是连续值<br>定义：线性回归在假设<strong>特证满足线性关系</strong>，根据给定的训练数据训练一个模型，并用此模型进行预测。<br>简单的例子:我们假设一个线性方程 Y=2x+1, x变量为商品的大小，y代表为销售量；当月份x =5时，我们就能根据线性模型预测出 y =11销量<br><strong>模型推导</strong><br>$h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_2 $<br>$h_\theta(x) = \sum_{i=0}^{n} \theta_i x_i = \theta^T x$<br>我们主要就是得到这些$\theta_i$；<br>$\theta_i x_i$则代表着模型的结构；<br>$x_i$代表着数据集的不同特征的值，是模型的输入；<br>$h_\theta(x)$则代码我们的模型的输出，是预测值。<br>线性回归试图学得：<br>$h_\theta(x_i) \simeq y_i$ ,其中$y_i$是真实值</p>
+<h1 id="3-线性回归损失函数、代价函数、目标函数"><a href="#3-线性回归损失函数、代价函数、目标函数" class="headerlink" title="3. 线性回归损失函数、代价函数、目标函数"></a>3. 线性回归损失函数、代价函数、目标函数</h1><p>我们要得到$w_i$,那我们怎么判断$w_i$是最优的呢？<br>这里就采用了损失函数去判断我们得到的$h_\theta (x_i)$与$y_i$之间的差别  </p>
+<h2 id="损失函数-（代价函数）"><a href="#损失函数-（代价函数）" class="headerlink" title="损失函数 （代价函数）"></a>损失函数 （代价函数）</h2><p>是用来度量预测错误的程度，损失函数是$f(X)$和$Y$的非负实值函数，记作$L(Y,f(X))$<br>统计学习中常用的损失函数有以下几种：<br>(1) 0-1 损失函数（0-1） loss function：<br>$$L(Y,f(X)) = \begin{cases}<br>1 &amp; Y \neq f(X)\<br>0 &amp; Y = f(X)<br>\end{cases}$$<br>(2) 平方损失函数<br>$$L(Y,f(X)) = (Y - f(X))^2$$<br>(3)绝对损失函数<br>$$L(Y,f(X)) = |Y- f(X)|$$<br>(4)对数损失函数或对数似然损失函数<br>$$L(Y,P(Y|X))= -logP(Y|X) $$<br><strong>均方差</strong>是回归任务中常用的性能度量<br>$argmin J(x)$<br>$J(x) = \sum_{i=1}^{n}(f(x_i) - y_i)^2$<br>表示每一个训练点 $(x_i ,y_i)$ 到拟合直线 $y_i=\theta x_i$的竖直距离的平方和,并且这个和是最小的，通过最小化上面的损失函数可以求得拟合直线的最佳参数$\theta$<br>为了求导方便：<br>$$J(x) = \frac{1}{2m}\sum_{i=1}^{m}(h(x_i) -y_i)^2$$ 其中$\frac{1}{2}$是为了方便求导</p>
+<h1 id="4-优化方法-梯度下降法、牛顿法、拟牛顿法等"><a href="#4-优化方法-梯度下降法、牛顿法、拟牛顿法等" class="headerlink" title="4. 优化方法(梯度下降法、牛顿法、拟牛顿法等)"></a>4. 优化方法(梯度下降法、牛顿法、拟牛顿法等)</h1><p>参考：<a href="https://zhuanlan.zhihu.com/p/37524275" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/37524275</a><br>预测模型:$f(x) = w_0 +w_1x_1+…+w_nx_n$<br>我们可能去穷举所有的线性回归函数，然后挑选最小的；通常我们是先随机产生W的值然后在这个基础上改进参数。这里改进方法就是优化方法</p>
+<h2 id="4-1-梯度下降（可以单独一章）"><a href="#4-1-梯度下降（可以单独一章）" class="headerlink" title="4.1 梯度下降（可以单独一章）"></a>4.1 梯度下降（可以单独一章）</h2><p>初始化$w$为一个任意值，在迭代过程中不断的更新$w$使得$J(x)$更小，直到收敛为止（可以认为$J(x) $不再改变）。<br>$w_j = w_j - \eta \frac{\partial(J(x))}{w_j}, 其中 j = 0,1,2，…，n$<br>$\eta$是学习率，是一个超参数，一般是人为设置的  </p>
+<h2 id="4-2-牛顿法（未完待续————理解）"><a href="#4-2-牛顿法（未完待续————理解）" class="headerlink" title="4.2 牛顿法（未完待续————理解）"></a>4.2 牛顿法（未完待续————理解）</h2><p>一般来说，牛顿法主要应用在两个方面，1：求方程的根；2：最优化<br>并不是所有的方程都有求根公式，或者求根公式很复杂，导致求解困难。利用牛顿法，可以迭代求解<br>原理是利用泰勒公式，在 $x_0 $处展开，且展开到一阶, 即 $f(x)=f(x_0)+f’(x_0)(x-x_0)$ 。<br>求解方程 $f(x)=0$ ，等价于$ f(x_0)+f’(x_0)(x-x_0)=0$ ，<br>求解 $x=x_1=x_0-\frac{f(x_0)}{f’(x_0)} $。因为这是利用泰勒公式的一阶展开，$f(x)=f(x_0)+f’(x_0)(x-x_0)$处并不是完全相等，而是近似相等，这里求得的$ x_1$ 并不能让 $f(x)=0 $，只能说 $f(x_1)$ 的值比$ f(x_0)$ 的值更接近于0，于是迭代的想法就很自然了，可以进而推出 $x_{n+1}=x_{n}-\frac{f(x_n)}{f’(x_{n})} $，通过迭代，这个式子必然在 $f(x^*)=0 $的时候收敛。</p>
+<h1 id="5、线性回归的评估指标"><a href="#5、线性回归的评估指标" class="headerlink" title="5、线性回归的评估指标"></a>5、线性回归的评估指标</h1><p>用来评价模型与真实值之间的差距，线性回归中用到的性能度量（评价指标）是“均方差”    （mean squared erro MSE）<br>$E(f;D) = \frac{1}{m}\sum_{i=0}^{m}(f(x_i) -y_i)^2$ 其中m是样本容量</p>
+<h1 id="6、sklearn参数详解"><a href="#6、sklearn参数详解" class="headerlink" title="6、sklearn参数详解"></a>6、sklearn参数详解</h1><p>sklearn.linear_model.LinearRegression<br><strong>简单例子</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">from sklearn import linear_model</span><br><span class="line">clf = linear_model.LinearRegression()</span><br><span class="line">X = [[0,0],[1,1],[2,2]]</span><br><span class="line">y = [0,1,2]</span><br><span class="line">clf.fit(X,y)</span><br><span class="line">print(clf.coef_ ) # [ 0.5 0.5]</span><br><span class="line">print(clf.intercept_)  #1.11022302463e-16</span><br><span class="line">`</span><br></pre></td></tr></table></figure></p>
+<p>参考：<a href="https://blog.csdn.net/jingyi130705008/article/details/78163955" target="_blank" rel="noopener">https://blog.csdn.net/jingyi130705008/article/details/78163955</a>  </p>
+<h3 id="1-模型定义"><a href="#1-模型定义" class="headerlink" title="1.模型定义"></a>1.模型定义</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sklearn.linear_model.LinearRegression(fit_intercept=True, normalize=False,copy_X=True, n_jobs=1)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>fit_intercept：布尔类型，可选参数；设置模型是否计算截距，false表示不使用截距。</p>
+</li>
+<li><p>normalize：布尔类型，可选参数，默认值为false；设置为true之前，解释变量x将在回归前进行标准化。</p>
+</li>
+<li><p>copy_X：布尔类型，可选参数，默认值为true；如果为true，x将被复制；否则被重写。</p>
+</li>
+<li><p>n_jobs：int类型，可选参数，默认值为1；如果设为1，将启动所有CPU。  </p>
+<h3 id="2-几个常用的函数"><a href="#2-几个常用的函数" class="headerlink" title="2.几个常用的函数"></a>2.几个常用的函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fit(X,y, [sample_weight])  # 拟合线性模型</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>X:训练数据，形状如 [n_samples,n_features]</p>
+</li>
+<li><p>y:函数值，形状如 [n_samples, n_targets]</p>
+</li>
+<li><p>sample_weight： 每个样本的个体权重,形状如[n_samples]</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">get_params([deep])  # 获取参数估计量</span><br><span class="line"></span><br><span class="line">set_params(**params) # 设置参数估计量</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">predict(X) # 利用训练好的模型进行预测，返回预测的函数值</span><br></pre></td></tr></table></figure>
+<ul>
+<li>X:预测数据集，形状如 (n_samples, n_features)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">score(X, y, [sample_weight]) # 返回预测的决定系数R^2</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>X;训练数据，形状如 [n_samples,n_features]</p>
+</li>
+<li><p>y;关于X的真实函数值，形状如 (n_samples) or (n_samples, n_outputs)</p>
+</li>
+<li><p>sample_weight：样本权重</p>
+</li>
+</ul>
+
       
 
       
@@ -242,7 +329,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://jingbiao95.github.io/2019/03/19/文本分类--TextCNN/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://jingbiao95.github.io/2019/03/29/线性回归算法梳理/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -256,17 +343,8 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/03/29/线性回归算法梳理/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/03/19/unbunut 压缩解压命令/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/03/19/文本分类--TextCNN/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>
